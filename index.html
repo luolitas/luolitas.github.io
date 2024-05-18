@@ -16,7 +16,7 @@
 <body>
   <script>
       let d = new Date();
-      document.body.innerHTML = "<h1>Today's date is " + d + "</h1>";
+      document.body.innerHTML = "<h1 class="format-area">Today's date is " + d + "</h1>";
       const isUpperCase = (string) => /^[A-Z]*$/.test(string);
 
       function submit() {
@@ -41,7 +41,7 @@
           
           textArry = [...new Set(textArry)];
           
-          textAreaNew = textArry/join(" ");
+          textAreaNew = textArry.join(" ");
           
 
         } else {
@@ -71,9 +71,13 @@
     
   </script>
   <div class="format-area">
-  <textarea id="briefing-textarea"rows="4" cols="50"></textarea>
-  <button onclick="submit()">Submit</button>
-  <button onclick="clear()">Clear</button>
+  
+  <form name="f">
+    <textarea id="briefing-textarea"rows="4" cols="50"></textarea>
+    <button onclick="submit()">Submit</button>
+    <!-- <button onclick="clear()">Clear</button> -->
+    <button onclick="f[0].value='';event.preventDefault();">Clear text</button>
+  </form>
   </div>
 
 
