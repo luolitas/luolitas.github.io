@@ -64,20 +64,21 @@
         URL.revokeObjectURL(link.href);
       };
       
-      function clear() {
+      function clear(e) {
         // clear textarea
+        e.preventDefault();
         document.getElementById("briefing-textarea").value = "";
       }
     
   </script>
   <div class="format-area">
   
-  <form name="f">
+  <!-- <form name="f"> -->
     <textarea id="briefing-textarea"rows="4" cols="50"></textarea>
     <button onclick="submit()">Submit</button>
-    <!-- <button onclick="clear()">Clear</button> -->
-    <button onclick="f[0].value='';event.preventDefault();">Clear text</button>
-  </form>
+    <button onclick="clear()">Clear</button>
+    <!-- <button onclick="f[0].value='';event.preventDefault();">Clear text</button> -->
+  <!-- </form> -->
   </div>
 
 
