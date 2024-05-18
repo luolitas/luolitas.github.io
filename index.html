@@ -24,6 +24,8 @@
           textAreaNew = textArea.replace(/[0-9]/g, "");
           // remove special charactors
           textAreaNew = textAreaNew.replace(/[^a-zA-Z ]/g, "");
+          // remove all small cases
+          textAreaNew = textAreaNew.replace( /[^A-Z]/g, " ");
 
 
           // textArea.split('').filter(x => x === x.toUpperCase()).join('');
