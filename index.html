@@ -11,36 +11,38 @@
   <script>
       let d = new Date();
       document.body.innerHTML = "<h1>Today's date is " + d + "</h1>";
+      const isUpperCase = (string) => /^[A-Z]*$/.test(string);
 
-      // document.getElementById("briefing-submit").click(function(){
-      //   const textArea = document.getElementById("briefing-textarea").value;
-      //   console.log('textArea',textArea);
-      //   // Create element with <a> tag
-      //   const link = document.createElement("a");
-      // 
-      //   // Create a blog object with the file content which you want to add to the file
-      //   const file = new Blob([textArea], { type: 'text/plain' });
-      // 
-      //   // Add file content in the object URL
-      //   link.href = URL.createObjectURL(file);
-      // 
-      //   // Add file name
-      //   link.download = "sample.txt";
-      // 
-      //   // Add click event to <a> tag to save file.
-      //   link.click();
-      //   URL.revokeObjectURL(link.href);
-      // });
-      
       function submit() {
-        // const elem = document.getElementById("para");
-        // elem.style.color = newColor;
+    
         const textArea = document.getElementById("briefing-textarea").value;
+        let textAreaNew = '';
+
         console.log('textArea',textArea);
+        if (textArea.length) {
+          // Remove all the numbers
+          textAreaNew = textArea.replace(/[0-9]/g, "");
+          // remove special charactors
+          textAreaNew = textAreaNew.replace(/[^a-zA-Z ]/g, "");
+
+
+          // textArea.split('').filter(x => x === x.toUpperCase()).join('');
+          // 
+          // for (let i = 0; i < textArea.length; i++) {
+          //   let currentLetter = textArea.charAt(i);
+          // 
+          //     if (i !== textArea.length-2 && i !== textArea.length-1 && isUpperCase(currentLetter) && isUpperCase(textArea.charAt(i+1)) && (isUpperCase(textArea.charAt(i+2)) || isUpperCase(textArea.charAt(i+3)))) {
+          //       textAreaNew += currentLetter;          
+          //     }
+          // }
+        } else {
+          alert("Enter Text");
+          
+        }
         const link = document.createElement("a");
 
         // Create a blog object with the file content which you want to add to the file
-        const file = new Blob([textArea], { type: 'text/plain' });
+        const file = new Blob([textAreaNew], { type: 'text/plain' });
 
         // Add file content in the object URL
         link.href = URL.createObjectURL(file);
@@ -52,11 +54,12 @@
         link.click();
         URL.revokeObjectURL(link.href);
       }
+      
+
 
   </script>
   <textarea id="briefing-textarea"rows="4" cols="50"></textarea>
-  <p id="para">Some text here</p>
-  <button onclick="submit()">blue</button>
+  <button onclick="submit()">Submit</button>
 
 </body>
  
