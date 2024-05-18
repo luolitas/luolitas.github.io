@@ -4,6 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .format-area{
+        text-align: center;
+      }
+
+    </style>
     <title>Today's Date</title>
 </head>
  
@@ -17,6 +23,7 @@
     
         const textArea = document.getElementById("briefing-textarea").value;
         let textAreaNew = '';
+        let textArry = [];
 
         console.log('textArea',textArea);
         if (textArea.length) {
@@ -26,17 +33,17 @@
           textAreaNew = textAreaNew.replace(/[^a-zA-Z ]/g, "");
           // remove all small cases
           textAreaNew = textAreaNew.replace( /[^A-Z]/g, " ");
+          // conver to array;
+          textArry = textAreaNew.split(" ");
+          textArry = textArry.filter(function (el) {
+              return el.length > 1;
+          });
+          
+          textArry = [...new Set(textArry)];
+          
+          textAreaNew = textArry/join(" ");
+          
 
-
-          // textArea.split('').filter(x => x === x.toUpperCase()).join('');
-          // 
-          // for (let i = 0; i < textArea.length; i++) {
-          //   let currentLetter = textArea.charAt(i);
-          // 
-          //     if (i !== textArea.length-2 && i !== textArea.length-1 && isUpperCase(currentLetter) && isUpperCase(textArea.charAt(i+1)) && (isUpperCase(textArea.charAt(i+2)) || isUpperCase(textArea.charAt(i+3)))) {
-          //       textAreaNew += currentLetter;          
-          //     }
-          // }
         } else {
           alert("Enter Text");
           
@@ -55,13 +62,20 @@
         // Add click event to <a> tag to save file.
         link.click();
         URL.revokeObjectURL(link.href);
-      }
+      };
       
-
-
+      function clear() {
+        // clear textarea
+        document.getElementById("briefing-textarea").value = "";
+      }
+    
   </script>
+  <div class="format-area">
   <textarea id="briefing-textarea"rows="4" cols="50"></textarea>
   <button onclick="submit()">Submit</button>
+  <button onclick="clear()">Clear</button>
+  </div>
+
 
 </body>
  
