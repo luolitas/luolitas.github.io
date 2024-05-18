@@ -1,28 +1,21 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en-US">
+ 
 <head>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
-<script type="text/javascript">
-  $(".briefing-submit").click(function(){
-    console.log("werwerwerwer")
-  })
-</script>
-
-</head> 
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Today's Date</title>
+</head>
+ 
 <body>
-
-<h1>Enter string</h1>
-
-<textarea id="briefing-textarea"rows="4" cols="50">
-</textarea>
-
-<a class="briefing-submit">Submit</a>
-
-<p></p>
+  <script>
+      let d = new Date();
+      document.body.innerHTML = "<h1>Today's date is " + d + "</h1>"
+  </script>
+  <textarea id="briefing-textarea"rows="4" cols="50"></textarea>
+  
+  <a class="briefing-submit">Submit</a>
 
 </body>
+ 
 </html>
