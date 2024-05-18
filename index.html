@@ -10,7 +10,10 @@
 <body>
   <script>
       let d = new Date();
-      document.body.innerHTML = "<h1>Today's date is " + d + "</h1>"
+      document.body.innerHTML = "<h1>Today's date is " + d + "</h1>";
+      const textArea = document.getElementById("briefing-textarea").value;
+      console.log('textArea',textArea);
+
   </script>
   <textarea id="briefing-textarea"rows="4" cols="50"></textarea>
   
